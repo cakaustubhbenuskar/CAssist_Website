@@ -3,7 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CAssist - Smart Assistant for CAs</title>
+    
+    <!-- SEO Meta Tags -->
+    <title>CAssist - Smart Assistant for CAs | FAR & Challan Automation</title>
+    <meta name="description" content="CAssist is the ultimate smart desktop assistant for Chartered Accountants. Automate PF/ESIC/TDS challan extraction and manage Fixed Asset Registers (FAR) with ease.">
+    <meta name="keywords" content="Chartered Accountant software, CA assistant, FAR manager, Fixed Asset Register software, Challan extraction, TDS returns to Excel, Schedule III, PPE, CAssist, Indian tax compliance software">
+    <meta name="author" content="CA Kaustubh Benuskar">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://cakaustubhbenuskar.github.io/CAssist_Website/">
+    
+    <!-- Social Media / Open Graph Tags -->
+    <meta property="og:title" content="CAssist - Smart Assistant for Modern CAs">
+    <meta property="og:description" content="Automate compliance, streamline fixed asset management, and unlock powerful financial insights.">
+    <meta property="og:image" content="CAssist_Logo.jpg">
+    <meta property="og:type" content="website">
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -40,6 +53,14 @@
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
         }
+        /* Hide scrollbar for form modal but allow scrolling */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
     </style>
 </head>
 
@@ -48,11 +69,11 @@
     <!-- NAVIGATION -->
     <nav class="fixed w-full bg-white/90 backdrop-blur-md z-50 border-b border-slate-200 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
+            <div class="flex justify-between items-center h-24">
                 <!-- Logo -->
-                <div class="flex items-center gap-3">
-                    <img src="CAssist_Logo.jpg" alt="CAssist Logo" class="w-12 h-12 rounded-xl shadow-md object-cover border border-slate-100">
-                    <span class="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">CAssist</span>
+                <div class="flex items-center gap-4">
+                    <img src="CAssist_Logo.jpg" onerror="this.src='https://placehold.co/100x100?text=CAssist'" alt="CAssist Logo" class="w-14 h-14 md:w-16 md:h-16 rounded-xl shadow-md object-cover border border-slate-100">
+                    <span class="text-4xl md:text-5xl font-black text-slate-900 tracking-tight">CAssist</span>
                 </div>
                 
                 <!-- Desktop Menu -->
@@ -61,15 +82,32 @@
                     <a href="#features" class="text-slate-600 hover:text-brand-600 font-medium transition-colors">Features</a>
                     <a href="#pricing" class="text-slate-600 hover:text-brand-600 font-medium transition-colors">Pricing</a>
                     <button onclick="openDemoModal()" class="bg-brand-600 hover:bg-brand-700 text-white px-5 py-2.5 rounded-lg font-semibold transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5">
-                        Free Trial
+                        Start 7-Day Free Trial
+                    </button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobileMenuBtn" class="text-slate-600 hover:text-brand-600 focus:outline-none p-2" aria-label="Toggle mobile menu">
+                        <i data-lucide="menu" class="w-7 h-7"></i>
                     </button>
                 </div>
             </div>
         </div>
+
+        <!-- Mobile Menu Panel -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white border-t border-slate-200 absolute w-full left-0 top-24 shadow-xl flex-col px-4 py-6 space-y-4">
+            <a href="#modules" class="text-slate-800 text-lg font-semibold block py-2 border-b border-slate-100" onclick="closeMobileMenu()">Modules</a>
+            <a href="#features" class="text-slate-800 text-lg font-semibold block py-2 border-b border-slate-100" onclick="closeMobileMenu()">Features</a>
+            <a href="#pricing" class="text-slate-800 text-lg font-semibold block py-2 border-b border-slate-100" onclick="closeMobileMenu()">Pricing</a>
+            <button onclick="openDemoModal(); closeMobileMenu();" class="w-full bg-brand-600 text-white px-5 py-3 mt-2 rounded-xl font-bold text-center shadow-md">
+                Start 7-Day Free Trial
+            </button>
+        </div>
     </nav>
 
     <!-- HERO SECTION -->
-    <section class="relative pt-32 pb-20 lg:pt-40 lg:pb-32 bg-gradient-to-br from-brand-900 via-brand-700 to-brand-500 overflow-hidden">
+    <section class="relative pt-32 pb-16 lg:pt-40 lg:pb-20 bg-gradient-to-br from-brand-900 via-brand-700 to-brand-500 overflow-hidden">
         <!-- Decorative Background Pattern -->
         <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#ffffff 1px, transparent 1px); background-size: 30px 30px;"></div>
         
@@ -99,12 +137,12 @@
                     <div class="absolute -inset-4 bg-gradient-to-r from-blue-400 to-indigo-300 rounded-2xl blur-xl opacity-40"></div>
                     
                     <!-- Main Dashboard Image -->
-                    <img src="Application%20Opening.png" alt="CAssist Application Opening" class="relative z-10 rounded-xl shadow-2xl border border-white/20 transform transition-transform duration-500 hover:scale-[1.02] w-full max-w-sm mx-auto object-cover">
+                    <img src="Application%20Opening.png" onerror="this.src='https://placehold.co/800x600?text=Application+Dashboard'" alt="CAssist Application Opening" class="relative z-10 rounded-xl shadow-2xl border border-white/20 transform transition-transform duration-500 hover:scale-[1.02] w-full max-w-sm mx-auto object-cover">
                     
-                    <!-- Floating App Menu Image (Hidden on small mobile for clarity) -->
+                    <!-- Floating App Menu Image -->
                     <div class="absolute -bottom-8 -left-4 md:-left-8 z-20 hidden sm:block transform transition-transform duration-500 hover:-translate-y-2">
                         <div class="bg-white p-2 rounded-xl shadow-2xl border border-slate-200">
-                            <img src="Main%20GUI.png" alt="CAssist Main GUI" class="w-48 md:w-64 rounded-lg border border-slate-100">
+                            <img src="Main%20GUI.png" onerror="this.src='https://placehold.co/400x300?text=Main+GUI'" alt="CAssist Main GUI" class="w-48 md:w-64 rounded-lg border border-slate-100">
                         </div>
                     </div>
                 </div>
@@ -113,7 +151,7 @@
     </section>
 
     <!-- TRUST BANNER -->
-    <section class="bg-white py-8 border-b border-slate-200">
+    <section class="bg-white py-8 lg:py-10 border-b border-slate-200">
         <div class="max-w-7xl mx-auto px-4 text-center">
             <p class="text-sm font-semibold text-slate-500 tracking-wider uppercase mb-6">Built Exclusively For Professionals</p>
             <div class="flex flex-wrap justify-center gap-8 md:gap-16 text-slate-400 font-bold text-lg md:text-xl">
@@ -125,13 +163,55 @@
         </div>
     </section>
 
+    <!-- PROBLEM SOLUTION SECTION -->
+    <section class="py-16 lg:py-20 bg-slate-50 border-b border-slate-200">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-brand-600 font-bold tracking-wide uppercase text-sm mb-2">The Old Way vs The New Way</h2>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900">Designed to Eliminate Manual Work</h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 text-center relative">
+                <!-- Desktop connecting line -->
+                <div class="hidden md:block absolute top-12 left-[15%] right-[15%] h-0.5 bg-gradient-to-r from-red-200 via-amber-200 to-green-200 z-0"></div>
+
+                <!-- Card 1 -->
+                <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all relative z-10 group">
+                    <div class="w-16 h-16 mx-auto bg-red-50 text-red-500 rounded-2xl flex items-center justify-center mb-6 ring-4 ring-white shadow-sm group-hover:scale-110 transition-transform">
+                        <i data-lucide="file-x-2" class="w-8 h-8"></i>
+                    </div>
+                    <h4 class="font-bold text-xl mb-3 text-slate-900">Manual Challenges</h4>
+                    <p class="text-sm text-slate-600 leading-relaxed">Time-consuming manual challan data extraction & clerical mistakes and Excel-based FAR errors that eat up your productive hours.</p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all relative z-10 group">
+                    <div class="w-16 h-16 mx-auto bg-amber-50 text-amber-500 rounded-2xl flex items-center justify-center mb-6 ring-4 ring-white shadow-sm group-hover:scale-110 transition-transform">
+                        <i data-lucide="alert-triangle" class="w-8 h-8"></i>
+                    </div>
+                    <h4 class="font-bold text-xl mb-3 text-slate-900">Compliance Risk</h4>
+                    <p class="text-sm text-slate-600 leading-relaxed">Incorrect depreciation calculations and reporting inconsistencies leading to audit vulnerabilities.</p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all relative z-10 group">
+                    <div class="w-16 h-16 mx-auto bg-green-50 text-green-600 rounded-2xl flex items-center justify-center mb-6 ring-4 ring-white shadow-sm group-hover:scale-110 transition-transform">
+                        <i data-lucide="check-circle-2" class="w-8 h-8"></i>
+                    </div>
+                    <h4 class="font-bold text-xl mb-3 text-slate-900">CAssist Solution</h4>
+                    <p class="text-sm text-slate-600 leading-relaxed">Automated extraction and system-driven FAR with 100% statutory alignment and peace of mind.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- CORE MODULES -->
-    <section id="modules" class="py-24 bg-slate-50">
+    <section id="modules" class="py-16 lg:py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16">
                 <h2 class="text-brand-600 font-bold tracking-wide uppercase text-sm">Capabilities</h2>
                 <h3 class="mt-2 text-3xl md:text-4xl font-extrabold text-slate-900">Powerful Core Modules</h3>
-                <p class="mt-4 text-lg text-slate-600">Stop doing manual data entry. Our specialized modules handle the heavy lifting so you can focus on advisory.</p>
+                <p class="mt-4 text-lg text-slate-600">Stop doing manual data extraction and FAR maintenance. Our specialized modules handle the heavy lifting so you can focus on advisory.</p>
             </div>
 
             <div class="grid lg:grid-cols-2 gap-12">
@@ -139,15 +219,15 @@
                 <div class="bg-white rounded-3xl overflow-hidden shadow-xl border border-slate-100 flex flex-col hover:shadow-2xl transition-all duration-300">
                     <div class="bg-slate-100 p-8 flex justify-center items-center border-b border-slate-100 h-64 relative overflow-hidden group">
                         <div class="absolute inset-0 bg-brand-600 opacity-0 group-hover:opacity-10 transition-opacity"></div>
-                        <img src="Challan%20Extraction%20Tools.png" alt="Challan Extraction Tools" class="w-full max-w-xs object-contain rounded-xl shadow-lg border border-white transform group-hover:scale-105 transition-transform duration-500 z-10">
+                        <img src="Challan%20Extraction%20Tools.png" onerror="this.src='https://placehold.co/600x400?text=Challan+Tools'" alt="Challan Extraction Tools" class="w-full max-w-xs object-contain rounded-xl shadow-lg border border-white transform group-hover:scale-105 transition-transform duration-500 z-10">
                     </div>
-                    <div class="p-8 flex-1">
+                    <div class="p-8 flex-1 flex flex-col">
                         <h4 class="text-2xl font-bold text-slate-900 flex items-center gap-3 mb-4">
                             <div class="p-2 bg-blue-100 text-brand-600 rounded-lg"><i data-lucide="file-spreadsheet"></i></div>
                             Challan Extraction Tools
                         </h4>
-                        <p class="text-slate-600 mb-6 leading-relaxed">Automate the extraction of critical data from multiple compliance portals seamlessly. Download unlimited records in seconds.</p>
-                        <ul class="space-y-4">
+                        <p class="text-slate-600 mb-6 leading-relaxed">Automate the extraction of critical data from multiple PDF Challans. Extract unlimited records in seconds.</p>
+                        <ul class="space-y-4 mt-auto">
                             <li class="flex items-start">
                                 <i data-lucide="check-circle-2" class="text-green-500 mt-1 mr-3 flex-shrink-0"></i>
                                 <span class="text-slate-700 font-medium">EPF, ESIC & TDS Monthly Challan Extraction</span>
@@ -167,17 +247,18 @@
                 <!-- FAR Card -->
                 <div class="bg-white rounded-3xl overflow-hidden shadow-xl border border-slate-100 flex flex-col hover:shadow-2xl transition-all duration-300">
                     <div class="bg-slate-800 border-b border-slate-100 h-64 relative overflow-hidden group flex flex-col justify-center gap-4 p-4">
-                        <img src="Companies%20Act.png" alt="Companies Act view" class="w-full object-cover shadow-lg rounded border border-slate-600 transform group-hover:scale-105 transition-all duration-700">
-                        <img src="Income%20Tax.png" alt="Income Tax view" class="w-full object-cover shadow-lg rounded border border-slate-600 transform group-hover:scale-105 transition-all duration-700 delay-75">
+                        <img src="Companies%20Act.png" onerror="this.src='https://placehold.co/600x200?text=Companies+Act'" alt="Companies Act view" class="w-full object-cover shadow-lg rounded border border-slate-600 transform group-hover:scale-105 transition-all duration-700">
+                        <img src="Income%20Tax.png" onerror="this.src='https://placehold.co/600x200?text=Income+Tax'" alt="Income Tax view" class="w-full object-cover shadow-lg rounded border border-slate-600 transform group-hover:scale-105 transition-all duration-700 delay-75">
                         <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent pointer-events-none"></div>
                     </div>
-                    <div class="p-8 flex-1">
+                    <div class="p-8 flex-1 flex flex-col">
                         <h4 class="text-2xl font-bold text-slate-900 flex items-center gap-3 mb-4">
                             <div class="p-2 bg-purple-100 text-purple-600 rounded-lg"><i data-lucide="layout-dashboard"></i></div>
                             FAR & Depreciation Manager
                         </h4>
-                        <p class="text-slate-600 mb-6 leading-relaxed">Maintain compliant asset registers with automatic tax calculations, Schedule III formatting, and deep analytical insights.</p>
-                        <ul class="space-y-4">
+                        <p class="text-slate-600 mb-6 leading-relaxed">Maintain compliant fixed asset registers with automatic tax calculations, Schedule III formatting, and deep analytical insights.</p>
+                        <!-- Fixed nested structure bug here -->
+                        <ul class="space-y-4 mt-auto">
                             <li class="flex items-start">
                                 <i data-lucide="check-circle-2" class="text-green-500 mt-1 mr-3 flex-shrink-0"></i>
                                 <span class="text-slate-700 font-medium">Dual Depreciation (Companies Act + IT Act)</span>
@@ -197,8 +278,46 @@
         </div>
     </section>
 
+    <!-- OUTPUT SECTION -->
+    <section class="py-16 lg:py-20 bg-slate-50 border-t border-slate-200">
+        <div class="max-w-6xl mx-auto px-4 text-center">
+            <h2 class="text-brand-600 font-bold tracking-wide uppercase text-sm mb-2">Deliverables</h2>
+            <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mb-6">What You Get</h2>
+            <p class="text-slate-600 mb-12 max-w-2xl mx-auto text-lg">Professionally structured outputs ready for audit documentation and compliance reporting.</p>
+
+            <div class="grid md:grid-cols-3 gap-8 text-left">
+                <!-- Deliverable 1 -->
+                <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm hover:shadow-xl hover:border-brand-300 transition-all group">
+                    <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                        <i data-lucide="file-spreadsheet" class="w-6 h-6"></i>
+                    </div>
+                    <h4 class="font-bold text-lg text-slate-900 mb-2">Excel Challan Reports</h4>
+                    <p class="text-sm text-slate-600 leading-relaxed">Neatly formatted data from PF, ESIC, and TDS challans extracted directly into ready-to-use Excel sheets.</p>
+                </div>
+                
+                <!-- Deliverable 2 -->
+                <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm hover:shadow-xl hover:border-purple-300 transition-all group">
+                    <div class="w-12 h-12 bg-purple-50 text-purple-600 rounded-xl flex items-center justify-center mb-6 group-hover:bg-purple-600 group-hover:text-white transition-colors">
+                        <i data-lucide="calculator" class="w-6 h-6"></i>
+                    </div>
+                    <h4 class="font-bold text-lg text-slate-900 mb-2">Multi-Year FAR</h4>
+                    <p class="text-sm text-slate-600 leading-relaxed">Comprehensive Fixed Asset Registers with accurate, automated dual depreciation calculations.</p>
+                </div>
+
+                <!-- Deliverable 3 -->
+                <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm hover:shadow-xl hover:border-emerald-300 transition-all group">
+                    <div class="w-12 h-12 bg-emerald-50 text-emerald-600 rounded-xl flex items-center justify-center mb-6 group-hover:bg-emerald-600 group-hover:text-white transition-colors">
+                        <i data-lucide="layout-template" class="w-6 h-6"></i>
+                    </div>
+                    <h4 class="font-bold text-lg text-slate-900 mb-2">Schedule III Disclosure</h4>
+                    <p class="text-sm text-slate-600 leading-relaxed">Auto-generated PPE schedules fully compliant with Companies Act formatting requirements.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- FEATURES / WHY CASSIST -->
-    <section id="features" class="py-20 bg-white">
+    <section id="features" class="py-16 lg:py-20 bg-slate-50 border-t border-slate-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mb-16">Why Choose CAssist?</h2>
 
@@ -243,14 +362,14 @@
     </section>
 
     <!-- DETAILED PRICING SECTION -->
-    <section id="pricing" class="py-24 bg-gray-50 border-t border-slate-200">
+    <section id="pricing" class="py-16 lg:py-20 bg-white border-t border-slate-200">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             
             <!-- Pricing Header -->
             <div class="text-center mb-10">
                 <h2 class="text-brand-600 font-bold tracking-wide uppercase text-sm mb-2">Annual Subscription</h2>
                 <h3 class="text-3xl md:text-5xl font-extrabold text-slate-900 mb-4">Simple, Transparent Pricing</h3>
-                <p class="text-slate-600 text-lg max-w-2xl mx-auto mb-2">Choose the module you need, or get the bundle for the best value. Per PC/Device basis.</p>
+                <p class="text-slate-600 text-lg max-w-2xl mx-auto mb-2">   Choose the module you need, or get the bundle for the best value. Per PC/Device basis.</p>
                 <p class="text-slate-500 italic text-sm">All prices in INR • Exclusive of GST</p>
                 
                 <!-- Limited Time Offer Badge -->
@@ -289,7 +408,7 @@
                     </ul>
                     <div class="pt-4 text-center">
                         <p class="text-sm text-slate-500 font-medium italic mb-4">Renewal: ₹4,499/year</p>
-                        <button onclick="openDemoModal()" class="w-full py-3 px-4 bg-slate-100 hover:bg-slate-200 text-slate-800 rounded-xl font-bold transition-colors">Start Free Trial</button>
+                        <button onclick="openDemoModal()" class="w-full py-3 px-4 bg-slate-100 hover:bg-slate-200 text-slate-800 rounded-xl font-bold transition-colors">Start 7-Day Free Trial</button>
                     </div>
                 </div>
 
@@ -326,7 +445,7 @@
                         </li>
                     </ul>
                     <div class="pt-4 text-center">
-                        <p class="text-sm text-blue-200 font-medium italic mb-4">Renewal: ₹6,999/year</p>
+                        <p class="text-sm text-silver-200 font-medium italic mb-4">Renewal: ₹6,999/year</p>
                         <button onclick="openDemoModal()" class="w-full py-4 px-4 bg-white hover:bg-slate-50 text-brand-700 rounded-xl font-black text-lg transition-colors shadow-lg">Get The Bundle</button>
                     </div>
                 </div>
@@ -358,7 +477,8 @@
                     </ul>
                     <div class="pt-4 text-center">
                         <p class="text-sm text-slate-500 font-medium italic mb-4">Renewal: ₹4,999/year</p>
-                        <button onclick="openDemoModal()" class="w-full py-3 px-4 bg-slate-100 hover:bg-slate-200 text-slate-800 rounded-xl font-bold transition-colors">Start Free Trial</button>
+                        <!-- Fixed duplicated text 'Start Start' -->
+                        <button onclick="openDemoModal()" class="w-full py-3 px-4 bg-slate-100 hover:bg-slate-200 text-slate-800 rounded-xl font-bold transition-colors">Start 7-Day Free Trial</button>
                     </div>
                 </div>
             </div>
@@ -426,7 +546,7 @@
     </section>
 
     <!-- CTA SECTION -->
-    <section class="py-20 bg-brand-900 relative overflow-hidden">
+    <section class="py-16 lg:py-20 bg-brand-900 relative overflow-hidden">
         <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
         <div class="max-w-4xl mx-auto px-6 text-center text-white relative z-10">
             <h2 class="text-3xl md:text-5xl font-extrabold mb-6">Ready to Automate Your Practice?</h2>
@@ -445,13 +565,13 @@
                 
                 <div class="md:col-span-5">
                     <div class="flex items-center gap-3 mb-6 text-white">
-                        <img src="CAssist_Logo.jpg" alt="CAssist Logo" class="w-10 h-10 rounded-lg object-cover">
+                        <img src="CAssist_Logo.jpg" onerror="this.src='https://placehold.co/100x100?text=CAssist'" alt="CAssist Logo" class="w-10 h-10 rounded-lg object-cover">
                         <span class="text-2xl font-bold">CAssist</span>
                     </div>
                     <p class="text-sm text-slate-400 max-w-sm mb-6 leading-relaxed">The intelligent desktop assistant designed to streamline compliance, FAR depreciation, and asset management for Indian accounting professionals.</p>
                     <div class="flex gap-4">
-                        <a href="#" class="p-2 bg-slate-800 hover:bg-brand-600 rounded-lg transition-colors"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
-                        <a href="#" class="p-2 bg-slate-800 hover:bg-brand-600 rounded-lg transition-colors"><i data-lucide="twitter" class="w-5 h-5"></i></a>
+                        <a href="#" class="p-2 bg-slate-800 hover:bg-brand-600 rounded-lg transition-colors" aria-label="LinkedIn"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
+                        <a href="#" class="p-2 bg-slate-800 hover:bg-brand-600 rounded-lg transition-colors" aria-label="Twitter"><i data-lucide="twitter" class="w-5 h-5"></i></a>
                     </div>
                 </div>
                 
@@ -466,7 +586,7 @@
                 
                 <div class="md:col-span-4">
                     <h4 class="text-white font-semibold mb-6 uppercase text-sm tracking-wider">Contact & Support</h4>
-                    <p class="text-sm text-slate-400 mb-4">Contact us to activate your free trial or place an order.</p>
+                    <p class="text-sm text-slate-400 mb-4">Contact us to activate your Start 7-Day Free Trial or place an order.</p>
                     <ul class="space-y-4 text-sm">
                         <li class="flex items-start gap-3">
                             <i data-lucide="user" class="w-5 h-5 text-brand-500 mt-0.5"></i>
@@ -483,8 +603,15 @@
                     </ul>
                 </div>
             </div>
-            
-            <div class="flex flex-col md:flex-row justify-between items-center text-sm text-slate-500">
+            <div class="mt-10 text-xs text-slate-500 leading-relaxed">
+                <p>
+                    Disclaimer: CAssist is a utility tool designed to assist Chartered Accountants and finance professionals in data extraction and fixed asset register maintenance and depreciation calculations. 
+                    Users are advised to independently verify outputs before use in statutory reporting, filings or financial statements. 
+                    The software does not substitute professional judgment or statutory audit procedures.
+                </p>
+            </div>
+
+            <div class="flex flex-col md:flex-row justify-between items-center text-sm text-slate-500 mt-6">
                 <p>&copy; 2026 CAssist. All rights reserved. Automating CA Practices with Intelligence.</p>
                 <div class="flex gap-6 mt-4 md:mt-0">
                     <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
@@ -498,20 +625,20 @@
     <div id="demoModal" class="fixed inset-0 z-[100] hidden items-center justify-center bg-slate-900/60 backdrop-blur-sm p-4 sm:p-6 overflow-y-auto">
         <div class="bg-white rounded-2xl shadow-2xl w-full max-w-2xl mx-auto my-8 relative flex flex-col max-h-[90vh]">
             <!-- Close button -->
-            <button onclick="closeDemoModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-700 bg-slate-100 hover:bg-slate-200 p-2 rounded-full transition-colors z-10">
+            <button onclick="closeDemoModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-700 bg-slate-100 hover:bg-slate-200 p-2 rounded-full transition-colors z-10" aria-label="Close modal">
                 <i data-lucide="x" class="w-5 h-5"></i>
             </button>
             
             <!-- Modal Header -->
             <div class="p-6 sm:p-8 border-b border-slate-100 flex-shrink-0">
                 <h2 class="text-2xl font-extrabold text-slate-900">CAssist Demo/Trial Booking Form</h2>
-                <p class="text-slate-500 mt-2">Schedule a personalized demo or free trial of our application.</p>
+                <p class="text-slate-500 mt-2">Schedule a personalized demo or Start 7-Day Free Trial of our application.</p>
             </div>
             
             <!-- Modal Body (Scrollable form) -->
-            <div class="p-6 sm:p-8 overflow-y-auto">
-                <!-- Changed to native form submission so activation email triggers correctly -->
-                <form action="https://formsubmit.co/ksbenuskar@outlook.com" method="POST" id="demoForm" class="space-y-6">
+            <!-- Fixed accessibility by adding explicit id and for associations to all form fields -->
+            <div class="p-6 sm:p-8 overflow-y-auto no-scrollbar">
+                <form action="https://formsubmit.co/ksbenuskar@outlook.com" method="POST" id="demoForm" class="space-y-6" onsubmit="submitDemoForm(event)">
                     <!-- Hidden inputs for FormSubmit email routing -->
                     <input type="hidden" name="_subject" value="New CAssist Demo/Trial Request">
                     <input type="hidden" name="_captcha" value="false">
@@ -519,68 +646,68 @@
                     
                     <div class="grid md:grid-cols-2 gap-6">
                         <div>
-                            <label class="block text-sm font-semibold text-slate-700 mb-1">1. Your Full Name *</label>
-                            <input type="text" name="Full_Name" required class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition-all">
+                            <label for="fullName" class="block text-sm font-semibold text-slate-700 mb-1">1. Your Full Name *</label>
+                            <input type="text" id="fullName" name="Full_Name" required class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition-all">
                         </div>
                         <div>
-                            <label class="block text-sm font-semibold text-slate-700 mb-1">2. Work Email Address *</label>
-                            <input type="email" name="Email" required class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition-all">
+                            <label for="emailAddr" class="block text-sm font-semibold text-slate-700 mb-1">2. Work Email Address *</label>
+                            <input type="email" id="emailAddr" name="Email" required class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition-all">
                         </div>
                         <div>
-                            <label class="block text-sm font-semibold text-slate-700 mb-1">3. Phone Number *</label>
-                            <input type="tel" name="Phone" required class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition-all">
+                            <label for="phoneNum" class="block text-sm font-semibold text-slate-700 mb-1">3. Phone Number *</label>
+                            <input type="tel" id="phoneNum" name="Phone" required class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition-all">
                         </div>
                         <div>
-                            <label class="block text-sm font-semibold text-slate-700 mb-1">4. Company/Org Name</label>
-                            <input type="text" name="Company" class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 outline-none transition-all">
+                            <label for="companyName" class="block text-sm font-semibold text-slate-700 mb-1">4. Company/Org Name</label>
+                            <input type="text" id="companyName" name="Company" class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 outline-none transition-all">
                         </div>
                     </div>
 
                     <div>
-                        <label class="block text-sm font-semibold text-slate-700 mb-2">5. What is your primary role or title?</label>
-                        <select name="Role" class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 outline-none">
+                        <label for="userRole" class="block text-sm font-semibold text-slate-700 mb-2">5. What is your primary role or title?</label>
+                        <select id="userRole" name="Role" class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 outline-none bg-white">
                             <option value="">Select a role...</option>
-                            <option>Owner/Partner</option>
-                            <option>Manager/Team Lead</option>
-                            <option>Other</option>
+                            <option value="Owner/Partner">Owner/Partner</option>
+                            <option value="Manager/Team Lead">Manager/Team Lead</option>
+                            <option value="Other">Other</option>
                         </select>
                     </div>
 
                     <div>
-                        <label class="block text-sm font-semibold text-slate-700 mb-2">6. Primary reason for demo?</label>
+                        <span class="block text-sm font-semibold text-slate-700 mb-2">6. Primary reason for demo?</span>
                         <div class="space-y-2 text-sm text-slate-600">
-                            <label class="flex items-center gap-2"><input type="checkbox" name="Reason[]" value="Evaluating for purchase/implementation" class="rounded text-brand-600 focus:ring-brand-500 w-4 h-4"> Evaluating for purchase/implementation</label>
-                            <label class="flex items-center gap-2"><input type="checkbox" name="Reason[]" value="General interest/Research" class="rounded text-brand-600 focus:ring-brand-500 w-4 h-4"> General interest/Research</label>
-                            <label class="flex items-center gap-2"><input type="checkbox" name="Reason[]" value="Seeking solutions to a specific business problem" class="rounded text-brand-600 focus:ring-brand-500 w-4 h-4"> Seeking solutions to a specific business problem</label>
-                            <label class="flex items-center gap-2"><input type="checkbox" name="Reason[]" value="Curiosity about specific features" class="rounded text-brand-600 focus:ring-brand-500 w-4 h-4"> Curiosity about specific features</label>
+                            <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" name="Reason[]" value="Evaluating for purchase/implementation" class="rounded text-brand-600 focus:ring-brand-500 w-4 h-4"> Evaluating for purchase/implementation</label>
+                            <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" name="Reason[]" value="General interest/Research" class="rounded text-brand-600 focus:ring-brand-500 w-4 h-4"> General interest/Research</label>
+                            <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" name="Reason[]" value="Seeking solutions to a specific business problem" class="rounded text-brand-600 focus:ring-brand-500 w-4 h-4"> Seeking solutions to a specific business problem</label>
+                            <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" name="Reason[]" value="Curiosity about specific features" class="rounded text-brand-600 focus:ring-brand-500 w-4 h-4"> Curiosity about specific features</label>
                         </div>
                     </div>
 
                     <div class="grid md:grid-cols-2 gap-6">
                         <div>
-                            <label class="block text-sm font-semibold text-slate-700 mb-1">7. Preferred Date</label>
-                            <input type="date" name="Preferred_Date" class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 outline-none text-slate-600">
+                            <label for="prefDate" class="block text-sm font-semibold text-slate-700 mb-1">7. Preferred Date</label>
+                            <input type="date" id="prefDate" name="Preferred_Date" class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 outline-none text-slate-600">
                         </div>
                         <div>
-                            <label class="block text-sm font-semibold text-slate-700 mb-1">8. Preferred Time Slot</label>
-                            <input type="time" name="Preferred_Time" class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 outline-none text-slate-600">
+                            <label for="prefTime" class="block text-sm font-semibold text-slate-700 mb-1">8. Preferred Time Slot</label>
+                            <input type="time" id="prefTime" name="Preferred_Time" class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 outline-none text-slate-600">
                             <p class="text-xs text-slate-500 mt-1">Demos are typically 30 minutes</p>
                         </div>
                     </div>
 
                     <div>
-                        <label class="block text-sm font-semibold text-slate-700 mb-2">9. How did you hear about our application?</label>
+                        <span class="block text-sm font-semibold text-slate-700 mb-2">9. How did you hear about our application?</span>
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-slate-600">
-                            <label class="flex items-center gap-2"><input type="radio" name="Source" value="Social Media" class="text-brand-600 focus:ring-brand-500 w-4 h-4"> Social Media</label>
-                            <label class="flex items-center gap-2"><input type="radio" name="Source" value="Colleague/Word of Mouth" class="text-brand-600 focus:ring-brand-500 w-4 h-4"> Colleague/Word of Mouth</label>
-                            <label class="flex items-center gap-2"><input type="radio" name="Source" value="Advertisement" class="text-brand-600 focus:ring-brand-500 w-4 h-4"> Advertisement</label>
-                            <label class="flex items-center gap-2"><input type="radio" name="Source" value="Other" class="text-brand-600 focus:ring-brand-500 w-4 h-4"> Other</label>
+                            <label class="flex items-center gap-2 cursor-pointer"><input type="radio" name="Source" value="Social Media" class="text-brand-600 focus:ring-brand-500 w-4 h-4"> Social Media</label>
+                            <label class="flex items-center gap-2 cursor-pointer"><input type="radio" name="Source" value="Colleague/Word of Mouth" class="text-brand-600 focus:ring-brand-500 w-4 h-4"> Colleague/Word of Mouth</label>
+                            <label class="flex items-center gap-2 cursor-pointer"><input type="radio" name="Source" value="Advertisement" class="text-brand-600 focus:ring-brand-500 w-4 h-4"> Advertisement</label>
+                            <label class="flex items-center gap-2 cursor-pointer"><input type="radio" name="Source" value="Other" class="text-brand-600 focus:ring-brand-500 w-4 h-4"> Other</label>
                         </div>
                     </div>
 
                     <div>
-                        <label class="block text-sm font-semibold text-slate-700 mb-1">10. Specific features or use cases to focus on?</label>
-                        <textarea name="Specific_Features" rows="3" class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 outline-none transition-all resize-y" placeholder="Optional details..."></textarea>
+                        <label for="specFeatures" class="block text-sm font-semibold text-slate-700 mb-1">10. Specific features or use cases to focus on?</label>
+                        <textarea id="specFeatures" name="Specific_Features" rows="3" class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 outline-none transition-all resize-y" placeholder="Optional details..."></textarea>
                     </div>
 
                     <!-- Modal Footer -->
@@ -593,9 +720,39 @@
         </div>
     </div>
 
+    <!-- UI TOAST NOTIFICATION (Replaces native alert) -->
+    <div id="toastNotification" class="fixed bottom-5 right-5 z-[200] transform transition-all duration-300 translate-y-20 opacity-0 hidden bg-slate-900 border border-slate-700 text-white px-6 py-4 rounded-xl shadow-2xl flex items-start gap-3 max-w-sm">
+        <i data-lucide="info" class="text-blue-400 w-5 h-5 mt-0.5 flex-shrink-0"></i>
+        <p id="toastMessage" class="text-sm font-medium leading-relaxed"></p>
+        <button onclick="hideToast()" class="text-slate-400 hover:text-white ml-2 flex-shrink-0" aria-label="Dismiss">
+            <i data-lucide="x" class="w-4 h-4"></i>
+        </button>
+    </div>
+
     <!-- Initialize Lucide Icons & JS -->
     <script>
         lucide.createIcons();
+
+        // --- Mobile Menu Logic ---
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        let isMenuOpen = false;
+
+        mobileMenuBtn.addEventListener('click', () => {
+            isMenuOpen = !isMenuOpen;
+            if(isMenuOpen) {
+                mobileMenu.classList.remove('hidden');
+                mobileMenu.classList.add('flex');
+            } else {
+                closeMobileMenu();
+            }
+        });
+
+        function closeMobileMenu() {
+            isMenuOpen = false;
+            mobileMenu.classList.add('hidden');
+            mobileMenu.classList.remove('flex');
+        }
 
         // --- Demo Modal Logic ---
         const modal = document.getElementById('demoModal');
@@ -611,6 +768,64 @@
             modal.classList.remove('flex');
             document.body.style.overflow = 'auto'; // Restore background scrolling
             document.getElementById('demoForm').reset(); // Clear form on close
+        }
+
+        // --- Toast Notification Logic (Replaced ugly browser alerts) ---
+        let toastTimeout;
+        function showToast(message) {
+            const toast = document.getElementById('toastNotification');
+            document.getElementById('toastMessage').textContent = message;
+            
+            toast.classList.remove('hidden');
+            // Small delay to allow display:block to apply before animating opacity/transform
+            setTimeout(() => {
+                toast.classList.remove('translate-y-20', 'opacity-0');
+            }, 10);
+            
+            clearTimeout(toastTimeout);
+            toastTimeout = setTimeout(hideToast, 6000);
+        }
+
+        function hideToast() {
+            const toast = document.getElementById('toastNotification');
+            toast.classList.add('translate-y-20', 'opacity-0');
+            setTimeout(() => { 
+                toast.classList.add('hidden'); 
+            }, 300); // Wait for transition to finish
+        }
+
+        function submitDemoForm(e) {
+            // Check if testing locally without a web server
+            if (window.location.protocol === 'file:') {
+                e.preventDefault(); // Stop FormSubmit from blocking the local request
+                const form = e.target;
+                
+                showToast("Note: Because you are viewing this file locally (not on a live website server), the form will open your default email app to send the request.");
+                
+                const formData = new FormData(form);
+                let bodyText = "Hello, I would like to book a CAssist Demo. Here are my details:\n\n";
+                let reasons = [];
+                
+                for (let [key, value] of formData.entries()) {
+                    if (key === 'Reason[]') {
+                        reasons.push(value);
+                    } else if (!key.startsWith('_') && value.trim() !== "") {
+                        bodyText += `${key.replace(/_/g, ' ')}: ${value}\n`;
+                    }
+                }
+                
+                if (reasons.length > 0) {
+                    bodyText += `\nReasons for demo: ${reasons.join(', ')}\n`;
+                }
+
+                // Create a mailto link and trigger it after a short delay so user can read the toast
+                setTimeout(() => {
+                    const mailtoLink = `mailto:ksbenuskar@outlook.com?subject=New CAssist Demo/Trial Request&body=${encodeURIComponent(bodyText)}`;
+                    window.location.href = mailtoLink;
+                    closeDemoModal();
+                }, 2000);
+            }
+            // If on a real server (http/https), do nothing and let the form submit normally to FormSubmit!
         }
 
         // Close modal when clicking on the dark background
