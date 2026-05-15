@@ -859,11 +859,7 @@
             
             <!-- Modal Body (Scrollable form) -->
             <div class="p-6 sm:p-8 overflow-y-auto no-scrollbar">
-                <form action="https://formsubmit.co/ksbenuskar@outlook.com" method="POST" id="demoForm" class="space-y-6" onsubmit="submitDemoForm(event)">
-                    <!-- Hidden inputs for FormSubmit email routing -->
-                    <input type="hidden" name="_subject" value="New CAssist Demo/Trial Request">
-                    <input type="hidden" name="_captcha" value="false">
-                    <input type="hidden" name="_template" value="table">
+                <form id="demoForm" class="space-y-6" onsubmit="submitDemoForm(event)">
                     
                     <div class="grid md:grid-cols-2 gap-6">
                         <div>
@@ -1078,34 +1074,42 @@
         }
 
         function submitDemoForm(e) {
-            if (window.location.protocol === 'file:') {
-                e.preventDefault(); 
-                const form = e.target;
-                
-                showToast("Note: Because you are viewing this file locally (not on a live website server), the form will open your default email app to send the request.");
-                
-                const formData = new FormData(form);
-                let bodyText = "Hello, I would like to book a CAssist Demo. Here are my details:\n\n";
-                let reasons = [];
-                
-                for (let [key, value] of formData.entries()) {
-                    if (key === 'Reason[]') {
-                        reasons.push(value);
-                    } else if (!key.startsWith('_') && value.trim() !== "") {
-                        bodyText += `${key.replace(/_/g, ' ')}: ${value}\n`;
-                    }
+            e.preventDefault(); // Stop native submission
+            const form = e.target;
+            const btn = form.querySelector('button[type="submit"]');
+            const originalText = btn.innerHTML;
+            
+            // Show loading state
+            btn.innerHTML = 'Preparing Email...';
+            btn.disabled = true;
+            
+            const formData = new FormData(form);
+            let bodyText = "Hello, I would like to book a CAssist Demo. Here are my details:\n\n";
+            let reasons = [];
+            
+            for (let [key, value] of formData.entries()) {
+                if (key === 'Reason[]') {
+                    reasons.push(value);
+                } else if (!key.startsWith('_') && value.trim() !== "") {
+                    // Clean up underscores in the keys for better readability
+                    bodyText += `${key.replace(/_/g, ' ')}: ${value}\n`;
                 }
-                
-                if (reasons.length > 0) {
-                    bodyText += `\nReasons for demo: ${reasons.join(', ')}\n`;
-                }
-
-                setTimeout(() => {
-                    const mailtoLink = `mailto:ksbenuskar@outlook.com?subject=New CAssist Demo/Trial Request&body=${encodeURIComponent(bodyText)}`;
-                    window.location.href = mailtoLink;
-                    closeDemoModal();
-                }, 2000);
             }
+            
+            if (reasons.length > 0) {
+                bodyText += `\nReasons for demo: ${reasons.join(', ')}\n`;
+            }
+
+            // Trigger the email client after a short delay for UX
+            setTimeout(() => {
+                const mailtoLink = `mailto:ksbenuskar@outlook.com?subject=New CAssist Demo/Trial Request&body=${encodeURIComponent(bodyText)}`;
+                window.location.href = mailtoLink;
+                
+                // Reset form button and close modal
+                btn.innerHTML = originalText;
+                btn.disabled = false;
+                closeDemoModal();
+            }, 800);
         }
 
         modal.addEventListener('click', function(e) {
